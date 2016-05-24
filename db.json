@@ -1,0 +1,10 @@
+{
+  "todos": [
+    { "id": 1, "title": "Lavar a roupa", "checked": "true" },
+    { "id": 2, "title": "Pintar o barco", "checked": "false" }
+  ],
+  "comments": [
+    { "id": 1, "body": "some comment", "postId": 1 }
+  ],
+  "profile": { "name": "typicode" }
+}
