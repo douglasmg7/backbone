@@ -1,4 +1,6 @@
-TodoRouter = Backbone.Router.extend({
+var SimpleView = Backbone.View.extend({});
+
+todoRouter =  new (Backbone.Router.extend({
   routes: {
     'user/:id': 'user_id',
     '': 'general', // routes.html
@@ -15,22 +17,27 @@ TodoRouter = Backbone.Router.extend({
     $('.log').html(todoRouter.txt);  
   },
   user_id: function(id) {
-    console.log('user_id: ' + id);
-    $('.log').html('user-id: ' + id);
+    if (id === '7') {
+      console.log('user_id-redirection');
+      this.navigate('#user/17', {trigger: true});
+    } 
+    else {
+      console.log('user_id: ' + id);
+      $('.log').html('user-id: ' + id);
+    }
   },
-  initialize: function() {
+  initialize: function(options) {
+    this.simpleView = new SimpleView();
+    // console.log(options.simpleView.el);
+  },
+  start: function() {
+    Backbone.history.start();
+    // Backbone.history.start({pushState: true}); // use express to route the same page
+    // Backbone.history.start({pushState: true, hasChange: false});
   }
-});
+}))();
 
-var todoRouter = new TodoRouter();
-
-// Backbone.history.start();
-Backbone.history.start({pushState: true, hasChange: false});
-
-var SimpleView = Backbone.View.extend({});
-var simpleView = new SimpleView();
-console.log(simpleView.el);
 
 $(document).ready(function() {
-  $('.log').html(todoRouter.txt);  
+  todoRouter.start();
 });
