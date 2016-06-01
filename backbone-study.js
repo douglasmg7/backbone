@@ -19,12 +19,12 @@ todos.fetch({
     console.log(todos.get(1).get('title')); // by id   
     console.log(todos.at(1).get('title')); // by index    
   },
-  error: function(col, res, opt){
-    console.log(Object.keys(res).sort());
-    console.log(Object.keys(opt));
-    console.log(res.responseText);
-    console.log(res.statusText);
-    console.log(opt.error());
+  error: function(model, xhr, options){
+    // console.log(Object.keys(xhr).sort());
+    // console.log(Object.keys(options));
+    // console.log(xhr.responseText);
+    // console.log(xhr.statusText);
+    // console.log(options.error());
   }
 });
 console.log('reuqested');
