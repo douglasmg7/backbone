@@ -13,7 +13,8 @@ $(document).ready(function(){
         console.log('id: ' + model.get('id'));
         console.log('title: ' + model.get('title'));
         console.log('it: ' + model.get('it'));
-        $('.log').append('title: ' + todoItem.get('title'));
+        console.log(JSON.parse(options.xhr.responseText));
+        $('.log').append('title: ' + todoItem.get('title'));        
       });          
     },
     parse: function(response) {
@@ -27,5 +28,5 @@ $(document).ready(function(){
 
   var todoItem = new TodoItem({id: 1});
   todoItem.fetch();
- 
+  var te = 4;
 });
